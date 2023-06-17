@@ -1,0 +1,46 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    justify-content: center;
+}
+
+h1 {
+    color: #28057a;
+}
+
+h1, h2, h3, p {
+    text-align: center;
+    margin: 1.5rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+.row {
+    justify-content: center;
+}
+
+#botonInicio {
+    padding: 0.2rem;
+    font-size: 0.8rem;
+    display: none;
+}
+
+#vistaGuardia, #vistaEspecialidades, #vistaPaciente, #opcionesPersonal, #turnosGuardia, #turnosEspecialidades, #consultarTurnos {
+    display: none;
+}
+
+#contenedorTiempo {
+    border: 1px solid #c9b5f6;
+    border-radius: 5px;
+}
+
+hr {
+    margin: 16px;
+}
+
+#registrarNuevo {
+   justify-self: center;
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Central de turnos</title>
+</head>
+<body class="container">
+    <button class="btn btn-primary" id="botonInicio">Volver al Inicio</button>
+    <h1 id="titulo">Central de turnos</h1>
+    <hr>
+    <h2 id="subtitulo">Ingresar como:</h3> 
+    <hr>
+
+
+    <div class="row" id="menuPrincipal">
+        <div class="row" id="menuPrincipal">
+            <button type="button" id="personal" class="btn btn-info btn-lg col-3 m-3">Personal administrativo</button>
+            <button type="button" id="paciente" class="btn btn-info btn-lg col-3 m-3">Paciente</button>
+        </div>
+    </div>
+
+
+    <div class="row" id="opcionesPersonal">
+        <div class="row">
+            <button type="button" id="guardia" class="btn btn-info btn-lg col-3 m-3">Guardia médica</button>
+            <button type="button" id="especialidades" class="btn btn-info btn-lg col-3 m-3">Especialidades</button>
+        </div>
+    </div>
+
+    <div id="vistaEspecialidades"> 
+        <form class="container align-items-center" id="formEspecialidades">
+            <hr class="row">
+            <div class="row">
+                <div class="col-4 m-2">
+                    <select id="especialidad" class="form-select" aria-label="Default select example">
+                        <option value="0" selected>Especialidad</option>
+                    </select>
+                </div>
+                <div class="col-4 m-2">
+                    <select id="profesional" class="form-select" aria-label="Default select example">
+                        <option value="0" selected>Profesional</option>
+                    </select>                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 m-2">
+                    <select id="fecha" class="form-select" aria-label="Default select example">
+                        <option value="0" selected>Fecha</option>
+                    </select>
+                </div>
+                <div class="col-4 m-2">
+                    <select id="hora" class="form-select" aria-label="Default select example">
+                        <option value="0" selected>Hora</option>
+                    </select>                    
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="vistaGuardia" class="container">
+        <form id="formBasico">
+            <div class="row">
+                <div class="col-3 m-2">
+                    <input id="dni" type="number" class="form-control" placeholder="DNI" aria-label="dni">
+                  </div>
+                <div class="col-3 m-2">
+                  <input id="nombre" type="text" class="form-control" placeholder="Nombre" aria-label="First name">
+                </div>
+                <div class="col-3 m-2">
+                  <input id="apellido" type="text" class="form-control" placeholder="Apellido" aria-label="Last name">
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" id="registrarNuevo" class="btn btn-primary col-3 m-2">Registrar</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="consultarTurnos">
+        <form class="container" id="formConsultar">
+            <hr class="row">
+            <h2>Consultar turnos</h2>
+            <hr class="row">
+            <hr class="row">
+            <p class="row">Ingrese el DNI del paciente:</p>
+            <div class="row">
+                <div class="col-3">
+                    <input id="dniConsulta" type="text" class="form-control" placeholder="DNI" required>
+                </div>
+            </div>
+            <div class="row">
+                <button id="consultar" class="btn btn-primary col-2 m-3">Consultar</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="turnosGuardia">
+        <h3>Turnos registrados</h3>
+        <table class="table">
+            <hr>
+            <thead>
+                <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre y Apellido</th>
+                <th scope="col">DNI</th>
+                <th scope="col">Atendido</th>
+                </tr>
+            </thead>
+            <tbody id="contenedorGuardia">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="turnosEspecialidades">
+        <h3>Turnos registrados</h3>
+        <table class="table">
+            <hr>
+            <thead>
+                <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre y Apellido</th>
+                <th scope="col">DNI</th>
+                <th scope="col">Especialidad</th>
+                <th scope="col">Profesional</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Cancelar</th>
+                </tr>
+            </thead>
+            <tbody id="contenedorEsp">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="vistaPaciente">
+        <form class="container" id="formCalcular">
+            <hr class="row">
+            <p class="row">Ingrese el id de su turno:</p>
+            <div class="row">
+                <div class="col-3">
+                    <input id="idTurno" type="text" class="form-control" placeholder="Id de turno" aria-label="nroTurno" required>
+                </div>
+            </div>
+            <div class="row">
+                <button id="calcular" class="btn btn-primary col-2 m-3">Calcular</button>
+            </div>
+        </form>
+        <div class="container" id="contenedorTiempo"></div>
+        <h3>Si desea consultar, cancelar o registrar un nuevo turno para alguna especialidad médica, presione <button class="btn btn-info" type="button" id="registroPaciente"><b>aquí</b></a></h3>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/opcionesSelect.js"></script>
+
+</body>
+</html>
